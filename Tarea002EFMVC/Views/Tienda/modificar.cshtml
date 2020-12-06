@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Creación de Libros";
+}
+<div class="text-center">
+    <h1 class="display-4">Modificando los datos del libro:@ViewData["SearchTerm"]</h1>
+</div>
+<div>
+    @{var clsalert = "alert-fail";};
+    <form id="" class="form-inline mr-ms-2" method="post" action="Modificar">
+        <label>ID:</label><strong>@Model.DataModel.Titleid</strong><br />
+        <input class="form-control" type="hidden" name="Titleid" value="@Model.DataModel.Titleid" />
+        <label>Name:</label><br /><input class="form-control" type="text" required name="name"
+                                   value="@Model.DataModel.Name" maxlength="40" size="40" /><br />
+        <label>Genero:</label><br /><select class="form-control" name="type" required value="@Model.DataModel.Type">
+            <option value="">(Ninguna)</option>
+            @foreach (var oneType in Model.Types)
+            {
+                var selitem = "";
+                @if (@oneType == @Model.DataModel.Type)
+                {
+                    selitem = "selected";
+                }
+                <option value="@oneType" selected="@selitem">@oneType</option>
+            }
+        </select><br />
+        <label>Editora:</label><br /><select class="form-control" name="pub_id" required
+                                       value="@Model.DataModel.EditorID">
+            <option value="">(Ninguna)</option>
+            @foreach (var onePub in Model.Editors)
+            {
+                var selitem = "";
+                @if (@onePub.Pubid == @Model.DataModel.EditorID)
+                {
+                    selitem = "selected";
+                }
+                <option value="@onePub.Pubid" selected="@selitem">@onePub.Name</option>
+            }
+        </select><br />
+
+        <label>Precio:</label><br /><input class="form-control" type="text" name="price" required
+                                     value="@Model.DataModel.Price" /><br />
+        <label>Avance:</label><br /><input class="form-control" type="text" name="avance" required
+                                     value="@Model.DataModel.Avance" /><br />
+        <label>Royalty:</label><br /><input class="form-control" type="text" name="royal" required
+                                      value="@Model.DataModel.Royal" /><br />
+        <label>Ventas Año:</label><br /><input class="form-control" type="text" name="yearsales" required
+                                         value="@Model.DataModel.YearSales" /><br />
+        <label>Resumen:</label><br /><textarea class="form-control" name="notes" required cols="60"
+                                         rows="3">@Model.DataModel.Notas</textarea><br />
+        <label>Fecha de Pub.:</label><br /><input class="form-control" type="date" name="pubdate" required
+                                            value="@Model.DataModel.FechaPublicado" placeholder="mm-dd-yyyy"/>@Model.DataModel.FechaPublicado<br />
+
+<br /><br />
+@{var disableaction = "";}
+@if (@ViewData["isPostProcess"].Equals("1"))
+{
+    disableaction = "disabled";
+    clsalert = "alert-ok";
+}
+<input class="btn btn-primary" type="submit" name="btn_send" value="Modificar" @disableaction />
+</form>
+<h2 class="@clsalert">@ViewData["MessageText"]</h2>
+</div>

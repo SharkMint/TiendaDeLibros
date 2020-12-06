@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Detalles del Autor";
+}
+<div class="text-center">
+    <h1 class="display-4">Detalles del Autor</h1>
+</div>
+<div>
+</div>
+<div>
+    <table>
+        @foreach (var oneAutor in @Model)
+        {
+            <tr>
+                <td class="label">ID</td>
+                <td>@oneAutor.AuId</td>
+            </tr>
+            <tr>
+
+                <td class="label">Nombre:</td>
+                <td>@oneAutor.Au.AuFname</td>
+            </tr>
+            <tr>
+
+                <td class="label">Apellido:</td>
+                <td>@oneAutor.Au.AuLname</td>
+            </tr>
+            <tr>
+
+                <td class="label">Address:</td>
+                <td>@oneAutor.Au.Address</td>
+
+            </tr>
+            <tr>
+
+                <td class="label">Telefono</td>
+                <td>@oneAutor.Au.Phone</td>
+            </tr>
+            <tr>
+
+                <td class="label">Ciudad</td>
+                <td>@oneAutor.Au.City, @oneAutor.Au.State</td>
+            </tr>
+            <tr>
+
+                <td class="label">Zip</td>
+                <td>@oneAutor.Au.Zip</td>
+            </tr>
+            <tr>
+
+                <td class="label">Contrato</td>
+                <td>@oneAutor.Au.Contract</td>
+            </tr>
+            break;
+        }
+    </table>
+    <hr />
+
+    <table border="1">
+
+        <thead>
+
+            <tr>
+                <th>Libro ID</th>
+                <th>Titulo</th>
+                <th>Tipo</th>
+                <th>Publicitaria</th>
+                <th>Pub Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var oneTitle in @Model)
+            {
+                <tr>
+                    <td>@oneTitle.Title.TitleId</td>
+                    <td>@oneTitle.Title.Title</td>
+                    <td>@oneTitle.Title.Type</td>
+                    <td>@oneTitle.Title.PubId</td>
+                    <td>@oneTitle.Title.Pubdate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Ventas por libro de un perido";
+}
+<div class="text-center">
+    <h1 class="display-4">Ventas por libro de un perido</h1>
+</div>
+<div>
+    <form id="" method="post">
+        <label>Desde:</label><br /><input type="date" name="dtedesde" required
+                                          value="@ViewData["dtedesde"]" /><br />
+        <label>Desde:</label><br /><input type="date" name="dtehasta" required
+                                          value="@ViewData["dtehasta"]" /><br />
+        <label>Termino de busqueda(opcional):</label> <br /><input type="text"
+                                                                   name="searchterm" value="@ViewData["searchterm"]" />
+        <br /><br />
+        <button type="submit" class="btn btn-primary" name="btn_send">Buscar</button>
+    </form>
+    <h2>@ViewData["MessageText"]</h2>
+</div>
+<div>
+    <table border="1" class="table table-striped table-bordered table-hover table-light">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Tipo</th>
+                <th>Autor</th>
+                <th>Orden Date</th>
+                <th>Orden No</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{var subtotal = 0; var granttotal = 0; var prevtitleid = ""; var subqty = 0;
+                var grantqty = 0;}
+            @foreach (var oneTitle in @Model)
+             {
+                @if (prevtitleid == "") { prevtitleid = oneTitle.TitleId; }
+                @if (prevtitleid != oneTitle.TitleId)
+                 { 
+                    <tr class="row-sub-total">
+                        <td colspan="7">
+                            Sub Total
+                            @prevtitleid:
+                        </td>
+                        <td>@subqty.ToString("#,##0")</td>
+                        <td>
+                            @subtotal.ToString("#,##0.00")</td>
+                </tr>
+                 {
+                    granttotal += @subtotal; subtotal = 0; prevtitleid =
+                  oneTitle.TitleId; grantqty += subqty; subqty = 0;
+                 }
+             }
+                <tr>
+
+                    <td>@oneTitle.TitleId</td>
+                    <td>@oneTitle.Title</td>
+                    <td>@oneTitle.Type</td>
+                    <td>@oneTitle.Autor</td>
+                    <td>@oneTitle.OrdDate</td>
+                    <td>@oneTitle.OrdNum</td>
+                    <td class="cell-number">@oneTitle.Price.ToString("#,##0.00")</td>
+                    <td class="cell-number">@oneTitle.Qty.ToString("#,##0")</td>
+                    <td class="cell-number">@oneTitle.Total.ToString("#,##0.00")</td>
+                </tr>
+                {
+                    subtotal += oneTitle.Total; subqty += oneTitle.Qty;
+                }
+             }
+             @{granttotal += subtotal; grantqty += subqty;
+             }
+
+            <tr class="row-sub-total">
+                <td colspan="7">
+                    Sub Total Libro
+                    @prevtitleid:
+                </td>
+                <td>@subqty.ToString("#,##0")</td>
+                <td>
+                    @subtotal.ToString("#,##0.00")</td>
+        </tr>
+        <tr class="row-grant-total">
+            <td colspan="7">
+                Gran
+                Total:
+            </td>
+            <td>@grantqty.ToString("#,##0")</td>
+            <td>@granttotal.ToString("#,##0.00")</td></tr>
+    </tbody>
+</table>
+</div>

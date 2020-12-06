@@ -1,0 +1,9 @@
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\bin\Debug\netstandard2.0\EFPubDBLib.deps.json
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\bin\Debug\netstandard2.0\EFPubDBLib.dll
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.csprojAssemblyReference.cache
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.AssemblyInfoInputs.cache
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.AssemblyInfo.cs
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\bin\Debug\netstandard2.0\EFPubDBLib.pdb
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.csproj.CoreCompileInputs.cache
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.dll
+C:\Users\THE_N\source\repos\Tarea02AppWeb\EFPubDBLib\obj\Debug\netstandard2.0\EFPubDBLib.pdb

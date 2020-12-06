@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Buscador de libros";
+}
+<div class="text-center">
+    <h1 class="display-4">ETF- Buscador de libro</h1>
+</div>
+<div>
+    <h1 class="display-4">Datos generales del Libro</h1>
+    <!--<form id="" method="GET" action="probarGet">-->
+    <form id="" class="form-inline" method="post">
+        <input type="text" class="form-control mr-sm-2" name="searchterm" value="@ViewData["SearchTerm"]" />
+        <button class="btn btn-primary" type="submit" name="btn_send">buscar</button>
+    </form>
+    <h2>error textsss</h2>
+</div>
+<div>
+    <table border="1" class="table table-striped table-bordered table-hover table-light">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var oneTitle in @Model)
+            {
+                <tr>
+                    <td>@oneTitle.TitleId</td>
+                    <td>@oneTitle.Title</td>
+                    <td>@oneTitle.Type</td>
+                    <td>@oneTitle.Price</td>
+                    <td>@oneTitle.Notes</td>
+                    <td><a class="btn btn-primary" href="Edit?id=@oneTitle.TitleId">Modificar</a></td>
+                    <td><a class="btn btn-primary" href="Comprar?id=@oneTitle.TitleId">Comprar</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

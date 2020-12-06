@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "EF-Creador de libros";
+}
+<div class="text-center">
+    <h1 class="display-4">ETF- Agregue un nuevo Libro...</h1>
+</div>
+<div>
+    <div>
+        @{var clsalert = "alert-fail";};
+        <form id="" class="form-inline mr-sm-2" method="post" action="Create">
+            @Html.AntiForgeryToken()
+            <table>
+                <tr>
+                    <td> ID:</td>
+                    <td>
+                        <input type="text" class="form-control" required name="titleid" value=""
+                               maxlength="5" size="10" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+
+                        <input type="text" class="form-control" required name="name" value="" maxlength="40"
+                               size="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Genero:
+                    </td>
+                    <td>
+
+                        <select name="type" class="form-control" required value="">
+                            <option value="" selected="selected">(Ninguna)</option>
+                            @foreach (var oneType in Model.Types)
+                            {
+                                <option value="@oneType">@oneType</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Editora:
+                    </td>
+                    <td>
+
+                        <select name="pub_id" class="form-control" required value="">
+                            <option value="" selected="selected">(Ninguna)</option>
+                            @foreach (var onePub in Model.Pubs)
+                            {
+                                <option value="@onePub.PubId">@onePub.PubName</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Precio:
+                    </td>
+                    <td>
+
+                        <input type="text" class="form-control" name="price" required value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Avance:
+                    </td>
+                    <td>
+
+                        <input type="text" class="form-control" name="avance" required value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Royalty:
+                    </td>
+                    <td>
+
+                        <input type="text" class="form-control" name="royal" required value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ventas Año:
+                    </td>
+                    <td>
+
+                        <input type="text" class="form-control" name="yearsales" required value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resumen:
+                    </td>
+                    <td>
+
+                        <textarea name="notes" class="form-control" required cols="60" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fecha de Pub.:
+                    </td>
+                    <td>
+
+                        <input type="date" class="form-control" name="pubdate" required value=""
+                               placeholder="mm-dd-yyyy" />
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+        <input type="submit" class="btn btn-primary" name="btn_send" value="Crear" />
+        <h2 class="@clsalert">@ViewData["MessageText"]</h2>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model Tarea02AppWeb.Pages.probarFormModel
+@{
+    ViewData["Title"] = "Probando login form";
+
+}
+
+<div>
+    <h1 class="display-4">Datos generales de un estudiante</h1>
+    <hr /><br />
+
+    <!-- <form id="" method="get" action="probarGet"> -->
+    <form id="" method="post">
+        <strong>Nombre:</strong><br />
+        <input type="text" id="idname" name="name" /> <br />
+
+        <strong>Deme su edad:</strong><br />
+        <input type="text" id="idedad" name="edad" />
+
+        <label>Profesion</label><br />
+        <select name="Profesion">
+            <option value="INF">Informatica</option>
+            <option value="INF">Quimica</option>
+            <option value="INF">Matematica</option>
+            <option value="INF">Otra</option>
+        </select>
+        <label>Estado Civil</label>
+        <input type="checkbox" name="estadocivil" /> <br />
+    </form>
+    <h2>@Model.MessageText </h2>
+</div>

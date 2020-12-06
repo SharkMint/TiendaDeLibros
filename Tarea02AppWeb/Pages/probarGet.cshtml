@@ -1,0 +1,13 @@
+﻿@page
+@model Tarea02AppWeb.Pages.probarGetModel
+@{
+    ViewData["Title"] = "Probando el Get";
+}
+
+<div>
+    <h1 class="display-4">Mostrando los parametros get</h1>
+    <ul>
+        @foreach (var item in @Model.ParamsQ)
+        { <li>@item.Key=@item.Value</li>}
+    </ul>
+</div>

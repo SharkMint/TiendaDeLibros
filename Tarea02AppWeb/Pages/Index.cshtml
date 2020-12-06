@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["userid"] = Model.LogginUser;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>El tiempo en el servidor es :@Model.Time</p>
+</div>
+
+<div>
+    <ul>
+        <li><a href="probarGet" alt="Probando el Get">Probando el Get</a></li>
+        <li><a href="probarForm" alt="Probando el form post">Probando el form post</a></li>
+        <li><a href="login" alt="Probando login">Probando login</a></li>
+        <li><a href="uploadFile" alt="Subir archivo a la plataforma">Subir archivo a la plataforma</a></li>
+        <li><a href="probarSearch" alt="Buscar data ado.net">Buscar data ado.net</a></li>
+        <li><a href="postData" alt="Modificar (Agregar) data ado.net">Modificar (Agregar) data ado.net</a></li>
+    </ul>
+</div>

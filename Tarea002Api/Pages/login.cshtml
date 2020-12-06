@@ -1,0 +1,17 @@
+﻿@page
+@model webapppub.Pages.loginModel
+@{
+    ViewData["Title"] = "Probando formulario POST y Get";
+}
+<div>
+    <h1 class="display-4">Entre sus credenciales</h1>
+    <!--<form id="" method="GET" action="probarGet">-->
+    <form id="" method="post">
+        <label>Usuario:</label><br />
+        <input type="text" name="userid" /><br />
+        <label>Password:</label><br />
+        <input type="password" name="passkey" /><br />
+        <button type="submit" name="btn_send">enviar</button>
+    </form>
+    <h2>@Model.MessageText</h2>
+</div>
