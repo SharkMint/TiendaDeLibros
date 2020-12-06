@@ -43,7 +43,7 @@ namespace EFPubDBLib.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=dblibros;Trusted_Connection=True;user=sa;password=numero20");
+                optionsBuilder.UseSqlServer("ConectionString");
             }
         }
 
